@@ -1,0 +1,15 @@
+
+<div class="list">
+  <% @todos.each do |todo| %>
+    <p><%= todo.title %></p>
+  <% end %>
+</div>
+
+
+<%= form_for @todo, :html => {:id => 'new_item'} do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.submit %>
+<% end %>
+
+
