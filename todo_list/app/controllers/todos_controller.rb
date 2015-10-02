@@ -1,8 +1,13 @@
 class TodosController < ApplicationController
 
   def index
-    @todos = Todo.order('created_at ASC').all
-    @todo = Todo.new()
+    if request.xhr?
+      @complete_todo = Todo.find_by(completed: true)
+        render @complete_todo
+      else
+       @todos = Todo.order('created_at ASC').all
+       @todo = Todo.new()
+     end
   end
 
   def create

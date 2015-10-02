@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-
   $('body').on('submit','#new_item',function(e){
     e.preventDefault();
     var form = $(this).serialize();
@@ -18,7 +17,7 @@ $(document).ready(function(){
   })
 // -------------------------------------------------------------
 
-  $('.list').on('submit',"#complete-item",function(e){
+  $('#main').on('submit',"#complete-item",function(e){
     e.preventDefault();
     var url = $(this).attr('action')
     var divId = $(this).closest('div')
@@ -31,18 +30,12 @@ $(document).ready(function(){
     })
 
     .done(function(){
-      console.log(this.url)
-      $(divId).remove();
+      // console.log(this.url)
+      // $(divId).remove();
     })
 
+
   })
-
-  // $('#complete').on('click',function(e){
-  //   e.preventDefault();
-
-
-
-  // })
 
 
 });
