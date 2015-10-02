@@ -6,6 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<header>
+  <div id="complete"><%= link_to 'Completed'%></div> |
+  <%= link_to 'Active'%> |
+  <%= link_to 'All'%>
+</header>
 <body>
 
 <%= yield %>

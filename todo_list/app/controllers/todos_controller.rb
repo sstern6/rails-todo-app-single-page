@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
 
   def index
-    @todos = Todo.all
+    @todos = Todo.order('created_at ASC').all
     @todo = Todo.new()
   end
 
@@ -9,10 +9,20 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
     if @todo.save
       if request.xhr?
-        render json: @todo
+        render @todo
       else
         redirect_to root_path
       end
+    end
+  end
+
+  def update
+    @todo = Todo.find(params[:id])
+    if request.xhr?
+     @todo.update(:completed => true)
+     render :nothing => true
+     else
+      redirect_to root_path
     end
   end
 

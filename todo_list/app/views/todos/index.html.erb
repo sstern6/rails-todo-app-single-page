@@ -1,15 +1,22 @@
+<h1>TODOS</h1>
+
 
 <div class="list">
   <% @todos.each do |todo| %>
+  <div id="<%=todo.id%>">
     <p><%= todo.title %></p>
+      <%= form_for todo, :html => {:id => 'complete-item'}, method: 'put', :url => todo_path(todo.id) do |f| %>
+      <%= f.submit 'Complete'%>
+    <%end%>
+  </div>
   <% end %>
 </div>
 
+  <%= form_for @todo, :html => {:id => 'new_item'} do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.submit %>
+  <% end %>
 
-<%= form_for @todo, :html => {:id => 'new_item'} do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.submit %>
-<% end %>
 
 

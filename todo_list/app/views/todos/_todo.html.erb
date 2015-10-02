@@ -1,0 +1,7 @@
+
+  <p><%= @todo.title %></p>
+    <%= form_for @todo, :html => {:id => "complete-item"}, method: 'put', :url => todo_path(@todo.id) do |f| %>
+        <%= f.submit 'Complete'%>
+    <%end%>
+
+
